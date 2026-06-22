@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* Base — Umbral */
+  --color-void: #070a12;
+  --color-abyss: #0e1424;
+  --color-frost: #e9eef8;
+  --color-haze: #8794ac;
+
+  /* Layer accents (one per phenomenon) */
+  --color-terminator: #ff9e5a;
+  --color-cities: #ffe08a;
+  --color-flights: #5fe3ff;
+  --color-starfield: #c9d6ff;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-void);
+  color: var(--color-frost);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* Tabular numerals everywhere live data ticks, so digits don't jitter. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+}
+
+
+/* Visible keyboard focus — part of the quality floor. */
+:focus-visible {
+  outline: 2px solid var(--color-frost);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* We have a lot of motion; honour the user's preference globally. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
