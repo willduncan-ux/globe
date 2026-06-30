@@ -114,7 +114,10 @@ export async function getFlights(bbox?: BBox): Promise<CoreResult> {
   try {
     accessToken = await getToken()
   } catch (err) {
-    return { status: 500, body: { error: (err as Error).message } }
+    const cause = (err as { cause?: unknown }).cause
+    const detail = cause instanceof Error ? cause.message : cause ? String(cause) : undefined
+    const message = (err as Error).message + (detail ? `: ${detail}` : '')
+    return { status: 500, body: { error: message } }
   }
 
   // A bounding box restricts the query to a region — fewer aircraft and a
