@@ -1,4 +1,4 @@
-import { getFlights, bboxFromQuery } from './_opensky'
+import { getFlights, bboxFromQuery } from './_opensky.js'
 
 /**
  * Vercel serverless endpoint: GET /api/flights[?lamin&lomin&lamax&lomax].

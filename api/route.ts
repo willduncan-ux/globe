@@ -1,4 +1,4 @@
-import { getRoute } from './_adsbdb'
+import { getRoute } from './_adsbdb.js'
 
 /**
  * Vercel serverless endpoint: GET /api/route?callsign=XXX.
